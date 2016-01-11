@@ -15,6 +15,7 @@ func visit(path string, fi os.FileInfo, err error) error {
 
 func main(){
 
+    //参考一下这个网址, 去掉重复文件的.http://golanghome.com/post/476
     root := "E:/111" //"H:/winxp"
     err := filepath.Walk(root, visit)
     fmt.Printf("filepath.Walk() returned %v\n", err)
