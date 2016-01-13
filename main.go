@@ -6,7 +6,7 @@ import (
 )
 
 func visit(path string, fi os.FileInfo, err error) error {
-    if fi.Size()<gb {
+    if fi.Size()<gb {//panic: runtime error: invalid memory address or nil pointer dereference
         return nil
     }
 
@@ -16,7 +16,7 @@ func visit(path string, fi os.FileInfo, err error) error {
     }
     return nil
 }
- var gb int64 =1000*1000*1000
+ var gb int64 =1000*1000*1000*0.5
 func main(){
 
     //参考一下这个网址, 去掉重复文件的.http://golanghome.com/post/476
