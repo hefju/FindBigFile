@@ -2,10 +2,16 @@ package main
 import (
     "os"
     "fmt"
+    "errors"
     "path/filepath"
 )
 
 func visit(path string, fi os.FileInfo, err error) error {
+
+    if fi==nil{
+        //遇到的错误: c:/hiberfil.sys: The process cannot access the file because it is being used by another process.
+        return errors.New("bad file: "+path)
+    }
     if fi.Size()<gb {//panic: runtime error: invalid memory address or nil pointer dereference
         return nil
     }
